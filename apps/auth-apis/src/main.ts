@@ -1,8 +1,4 @@
-import { NestFactory } from '@nestjs/core';
-import { AuthApisModule } from './auth-apis.module';
+import { AuthApisModule } from './module';
+import { RestServer } from '@libs/boat';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AuthApisModule);
-  await app.listen(3000);
-}
-bootstrap();
+RestServer.make(AuthApisModule, { addValidationContainer: true });
