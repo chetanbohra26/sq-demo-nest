@@ -23,6 +23,12 @@
       ],
       "@libs/boat/*": [
         "libs/boat/src/*"
+      ],
+      "@libs/users": [
+        "libs/users/src"
+      ],
+      "@libs/users/*": [
+        "libs/users/src/*"
       ]
     }
   },
