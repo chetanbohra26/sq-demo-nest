@@ -1,6 +1,6 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/nestjs-boilerplate/src",
   "projects": {
     "boat": {
       "type": "library",
@@ -10,9 +10,30 @@
       "compilerOptions": {
         "tsConfigPath": "libs/boat/tsconfig.lib.json"
       }
+    },
+    "nestjs-boilerplate": {
+      "type": "application",
+      "root": "apps/nestjs-boilerplate",
+      "entryFile": "main",
+      "sourceRoot": "apps/nestjs-boilerplate/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nestjs-boilerplate/tsconfig.app.json"
+      }
+    },
+    "auth-apis": {
+      "type": "application",
+      "root": "apps/auth-apis",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth-apis/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth-apis/tsconfig.app.json"
+      }
     }
   },
   "compilerOptions": {
-    "webpack": false
-  }
+    "webpack": true,
+    "tsConfigPath": "apps/nestjs-boilerplate/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/nestjs-boilerplate"
 }
