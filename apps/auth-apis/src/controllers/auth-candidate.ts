@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { AuthApisService } from '../service';
 import { Dto, Validate } from '@libs/boat/validator';
-import { LoginUserDto } from '@libs/users/dto';
+import { LoginUserDto, RegisterUserDto } from '@libs/users/dto';
 
 @Controller('/candidate/auth')
 export class CandidateAuthController {
@@ -15,9 +15,9 @@ export class CandidateAuthController {
   }
 
   @Post('/register')
-  @HttpCode(200)
-  register() {
-    return { success: true, message: 'Register successfull' };
+  @Validate(RegisterUserDto)
+  register(@Dto() inputs) {
+    return this.authApisService.registerUser(inputs);
   }
 
   @Get('/usersList')

@@ -1,7 +1,7 @@
 import { Request, Response, RestController } from '@libs/boat';
 import { Controller, Get, Req, Res } from '@nestjs/common';
 import { UserService } from '../services';
-import { UserDetailTransformer } from '@app/transformer';
+import { UserDetailTransformer } from '../../transformer';
 
 @Controller('users')
 export class UserController extends RestController {

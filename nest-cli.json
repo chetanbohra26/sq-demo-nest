@@ -1,6 +1,6 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/nestjs-boilerplate/src",
+  "sourceRoot": "apps/control-panel/src",
   "projects": {
     "boat": {
       "type": "library",
@@ -37,12 +37,21 @@
       "compilerOptions": {
         "tsConfigPath": "libs/users/tsconfig.lib.json"
       }
+    },
+    "control-panel": {
+      "type": "application",
+      "root": "apps/control-panel",
+      "entryFile": "main",
+      "sourceRoot": "apps/control-panel/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/control-panel/tsconfig.app.json"
+      }
     }
   },
   "compilerOptions": {
-    "webpack": true,
-    "tsConfigPath": "apps/nestjs-boilerplate/tsconfig.app.json"
+    "webpack": false,
+    "tsConfigPath": "tsconfig.json"
   },
   "monorepo": true,
-  "root": "apps/nestjs-boilerplate"
+  "root": "apps/control-panel"
 }

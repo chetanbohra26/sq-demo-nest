@@ -1,5 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import { DatabaseOptions } from '@squareboat/nestjs-objection';
+import { knexSnakeCaseMappers } from 'objection';
 
 export default registerAs(
   'db',
@@ -20,6 +21,20 @@ export default registerAs(
             charset: 'utf8',
           },
           useNullAsDefault: true,
+          pool: {
+            min: 2,
+            max: 10,
+          },
+          migrations: {
+            tableName: 'migrations',
+            directory: './database/migrations',
+            extension: 'js',
+          },
+          seeds: {
+            directory: './database/seeds',
+            extension: 'ts',
+          },
+          ...knexSnakeCaseMappers(),
         },
       },
     } as DatabaseOptions),
